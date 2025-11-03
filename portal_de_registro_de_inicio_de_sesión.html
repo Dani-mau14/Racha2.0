@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreakTracker Pro - Portal de Acceso</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fstreaktrac3957back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-gradient-to-br from-primary-50 via-white to-accent-50 min-h-screen">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="flame-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="1" fill="currentColor"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#flame-pattern)"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 px-4 py-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">🔥</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary-800">StreakTracker Pro</h1>
+                        <p class="text-xs text-secondary-500">Tu racha, tu fuerza</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="main_dashboard.html" class="text-secondary-600 hover:text-primary transition-colors">Dashboard</a>
+                    <a href="calendar_view.html" class="text-secondary-600 hover:text-primary transition-colors">Calendario</a>
+                    <a href="progress_analytics.html" class="text-secondary-600 hover:text-primary transition-colors">Progreso</a>
+                    <a href="achievement_center.html" class="text-secondary-600 hover:text-primary transition-colors">Logros</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 px-4 py-8">
+        <div class="max-w-md mx-auto">
+            <!-- Welcome Section -->
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 shadow-elevated">
+                    <span class="text-3xl">🔥</span>
+                </div>
+                <h2 class="text-3xl font-bold text-secondary-800 mb-2">¡Bienvenido de vuelta!</h2>
+                <p class="text-secondary-600 text-lg">Cada llama es progreso. La consistencia crea campeones.</p>
+            </div>
+
+            <!-- Auth Container -->
+            <div class="bg-white rounded-2xl shadow-elevated p-8 border border-border-light">
+                <!-- Tab Navigation -->
+                <div class="flex mb-6 bg-surface rounded-lg p-1">
+                    <button id="login-tab" class="flex-1 py-2 px-4 text-sm font-medium rounded-md bg-white text-primary shadow-sm transition-all">
+                        Iniciar Sesión
+                    </button>
+                    <button id="register-tab" class="flex-1 py-2 px-4 text-sm font-medium rounded-md text-secondary-600 hover:text-secondary-800 transition-all">
+                        Registrarse
+                    </button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-4">
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-secondary-700 mb-2">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="login-email" 
+                            name="email"
+                            placeholder="usuario@ejemplo.com"
+                            class="input-field"
+                            required
+                        >
+                        <div id="login-email-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <div>
+                        <label for="login-password" class="block text-sm font-medium text-secondary-700 mb-2">Contraseña</label>
+                        <div class="relative">
+                            <input 
+                                type="password" 
+                                id="login-password" 
+                                name="password"
+                                placeholder="MiRacha2024!"
+                                class="input-field pr-12"
+                                required
+                            >
+                            <button type="button" id="toggle-login-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-400 hover:text-secondary-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="login-password-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500">
+                            <span class="ml-2 text-sm text-secondary-600">Recordarme</span>
+                        </label>
+                        <button type="button" id="forgot-password" class="text-sm text-primary hover:text-primary-700 font-medium">
+                            ¿Olvidaste tu contraseña?
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full">
+                        <span class="flex items-center justify-center">
+                            <span class="mr-2">🔥</span>
+                            Continuar mi racha
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="register-form" class="space-y-4 hidden">
+                    <div>
+                        <label for="register-name" class="block text-sm font-medium text-secondary-700 mb-2">Nombre Completo</label>
+                        <input 
+                            type="text" 
+                            id="register-name" 
+                            name="name"
+                            placeholder="Tu nombre completo"
+                            class="input-field"
+                            required
+                        >
+                        <div id="register-name-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <div>
+                        <label for="register-email" class="block text-sm font-medium text-secondary-700 mb-2">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="register-email" 
+                            name="email"
+                            placeholder="tu@email.com"
+                            class="input-field"
+                            required
+                        >
+                        <div id="register-email-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <div>
+                        <label for="register-password" class="block text-sm font-medium text-secondary-700 mb-2">Contraseña</label>
+                        <div class="relative">
+                            <input 
+                                type="password" 
+                                id="register-password" 
+                                name="password"
+                                placeholder="Mínimo 8 caracteres"
+                                class="input-field pr-12"
+                                required
+                            >
+                            <button type="button" id="toggle-register-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-secondary-400 hover:text-secondary-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="register-password-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                        <div class="text-xs text-secondary-500 mt-1">
+                            Debe contener al menos 8 caracteres, una mayúscula y un número
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="register-confirm-password" class="block text-sm font-medium text-secondary-700 mb-2">Confirmar Contraseña</label>
+                        <input 
+                            type="password" 
+                            id="register-confirm-password" 
+                            name="confirmPassword"
+                            placeholder="Repite tu contraseña"
+                            class="input-field"
+                            required
+                        >
+                        <div id="register-confirm-password-error" class="text-error-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="terms" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500 mt-1" required>
+                        <label for="terms" class="ml-2 text-sm text-secondary-600">
+                            Acepto los <a href="javascript:void(0)" class="text-primary hover:text-primary-700 font-medium">términos y condiciones</a> 
+                            y la <a href="javascript:void(0)" class="text-primary hover:text-primary-700 font-medium">política de privacidad</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full">
+                        <span class="flex items-center justify-center">
+                            <span class="mr-2">🚀</span>
+                            Comenzar mi racha
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Social Login Divider -->
+                <div class="my-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-border"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-secondary-500">O continúa con</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="space-y-3">
+                    <button type="button" class="w-full flex items-center justify-center px-4 py-3 border border-border rounded-lg hover:bg-surface transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_12621292a-1762205612341.png" 
+                             alt="Google logo" 
+                             class="w-5 h-5 mr-3"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <span class="text-secondary-700 font-medium">Continuar con Google</span>
+                    </button>
+
+                    <button type="button" class="w-full flex items-center justify-center px-4 py-3 border border-border rounded-lg hover:bg-surface transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1e2a24582-1762205611971.png" 
+                             alt="Facebook logo" 
+                             class="w-5 h-5 mr-3"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <span class="text-secondary-700 font-medium">Continuar con Facebook</span>
+                    </button>
+
+                    <button type="button" class="w-full flex items-center justify-center px-4 py-3 border border-border rounded-lg hover:bg-surface transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_105f787cf-1762205615870.png" 
+                             alt="Apple logo" 
+                             class="w-5 h-5 mr-3"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <span class="text-secondary-700 font-medium">Continuar con Apple</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Motivational Footer -->
+            <div class="text-center mt-8">
+                <p class="text-secondary-600 text-sm mb-2">
+                    "La consistencia es la madre de la maestría"
+                </p>
+                <div class="flex items-center justify-center space-x-2 text-xs text-secondary-500">
+                    <span>🔥</span>
+                    <span>Cada día cuenta</span>
+                    <span>•</span>
+                    <span>Cada práctica importa</span>
+                    <span>🔥</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Password Recovery Modal -->
+    <div id="password-recovery-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🔑</span>
+                </div>
+                <h3 class="text-xl font-bold text-secondary-800 mb-2">Recuperar Contraseña</h3>
+                <p class="text-secondary-600">Te enviaremos un enlace para restablecer tu contraseña</p>
+            </div>
+
+            <form id="recovery-form" class="space-y-4">
+                <div>
+                    <label for="recovery-email" class="block text-sm font-medium text-secondary-700 mb-2">Correo Electrónico</label>
+                    <input 
+                        type="email" 
+                        id="recovery-email" 
+                        name="email"
+                        placeholder="tu@email.com"
+                        class="input-field"
+                        required
+                    >
+                </div>
+
+                <div class="flex space-x-3">
+                    <button type="button" id="cancel-recovery" class="flex-1 px-4 py-3 border border-border rounded-lg text-secondary-600 hover:bg-surface transition-colors">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="flex-1 btn-primary">
+                        Enviar Enlace
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" class="fixed top-4 right-4 bg-success-500 text-white px-6 py-3 rounded-lg shadow-elevated hidden z-50">
+        <div class="flex items-center">
+            <span class="mr-2">✅</span>
+            <span id="success-text">Operación exitosa</span>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="fixed top-4 right-4 bg-error-500 text-white px-6 py-3 rounded-lg shadow-elevated hidden z-50">
+        <div class="flex items-center">
+            <span class="mr-2">❌</span>
+            <span id="error-text">Ha ocurrido un error</span>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            loginTab.classList.remove('text-secondary-600');
+            registerTab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+            registerTab.classList.add('text-secondary-600');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        });
+
+        registerTab.addEventListener('click', () => {
+            registerTab.classList.add('bg-white', 'text-primary', 'shadow-sm');
+            registerTab.classList.remove('text-secondary-600');
+            loginTab.classList.remove('bg-white', 'text-primary', 'shadow-sm');
+            loginTab.classList.add('text-secondary-600');
+            registerForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        });
+
+        // Password visibility toggle
+        document.getElementById('toggle-login-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('login-password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+
+        document.getElementById('toggle-register-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('register-password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+
+        // Password recovery modal
+        const forgotPasswordBtn = document.getElementById('forgot-password');
+        const passwordRecoveryModal = document.getElementById('password-recovery-modal');
+        const cancelRecoveryBtn = document.getElementById('cancel-recovery');
+
+        forgotPasswordBtn.addEventListener('click', () => {
+            passwordRecoveryModal.classList.remove('hidden');
+        });
+
+        cancelRecoveryBtn.addEventListener('click', () => {
+            passwordRecoveryModal.classList.add('hidden');
+        });
+
+        // Form validation and submission
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        function hideError(elementId) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.classList.add('hidden');
+        }
+
+        function showMessage(type, message) {
+            const messageElement = document.getElementById(type + '-message');
+            const textElement = document.getElementById(type + '-text');
+            textElement.textContent = message;
+            messageElement.classList.remove('hidden');
+            setTimeout(() => {
+                messageElement.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Reset errors
+            hideError('login-email-error');
+            hideError('login-password-error');
+            
+            let hasErrors = false;
+            
+            // Email validation
+            if (!email) {
+                showError('login-email-error', 'El correo electrónico es requerido');
+                hasErrors = true;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                showError('login-email-error', 'Ingresa un correo electrónico válido');
+                hasErrors = true;
+            }
+            
+            // Password validation
+            if (!password) {
+                showError('login-password-error', 'La contraseña es requerida');
+                hasErrors = true;
+            }
+            
+            if (!hasErrors) {
+                // Mock authentication - redirect to dashboard
+                showMessage('success', '¡Bienvenido de vuelta! Redirigiendo...');
+                setTimeout(() => {
+                    window.location.href = 'main_dashboard.html';
+                }, 1500);
+            }
+        });
+
+        // Register form submission
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+            
+            // Reset errors
+            hideError('register-name-error');
+            hideError('register-email-error');
+            hideError('register-password-error');
+            hideError('register-confirm-password-error');
+            
+            let hasErrors = false;
+            
+            // Name validation
+            if (!name) {
+                showError('register-name-error', 'El nombre es requerido');
+                hasErrors = true;
+            }
+            
+            // Email validation
+            if (!email) {
+                showError('register-email-error', 'El correo electrónico es requerido');
+                hasErrors = true;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                showError('register-email-error', 'Ingresa un correo electrónico válido');
+                hasErrors = true;
+            }
+            
+            // Password validation
+            if (!password) {
+                showError('register-password-error', 'La contraseña es requerida');
+                hasErrors = true;
+            } else if (password.length < 8) {
+                showError('register-password-error', 'La contraseña debe tener al menos 8 caracteres');
+                hasErrors = true;
+            } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+                showError('register-password-error', 'Debe contener mayúscula, minúscula y número');
+                hasErrors = true;
+            }
+            
+            // Confirm password validation
+            if (!confirmPassword) {
+                showError('register-confirm-password-error', 'Confirma tu contraseña');
+                hasErrors = true;
+            } else if (password !== confirmPassword) {
+                showError('register-confirm-password-error', 'Las contraseñas no coinciden');
+                hasErrors = true;
+            }
+            
+            if (!hasErrors) {
+                showMessage('success', '¡Cuenta creada exitosamente! Redirigiendo...');
+                setTimeout(() => {
+                    window.location.href = 'main_dashboard.html';
+                }, 1500);
+            }
+        });
+
+        // Recovery form submission
+        document.getElementById('recovery-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showMessage('success', 'Enlace de recuperación enviado a tu correo');
+            passwordRecoveryModal.classList.add('hidden');
+        });
+
+        // Real-time validation
+        document.getElementById('login-email').addEventListener('blur', function() {
+            const email = this.value;
+            if (email && !/\S+@\S+\.\S+/.test(email)) {
+                showError('login-email-error', 'Ingresa un correo electrónico válido');
+            } else {
+                hideError('login-email-error');
+            }
+        });
+
+        document.getElementById('register-email').addEventListener('blur', function() {
+            const email = this.value;
+            if (email && !/\S+@\S+\.\S+/.test(email)) {
+                showError('register-email-error', 'Ingresa un correo electrónico válido');
+            } else {
+                hideError('register-email-error');
+            }
+        });
+
+        document.getElementById('register-password').addEventListener('input', function() {
+            const password = this.value;
+            if (password && password.length < 8) {
+                showError('register-password-error', 'La contraseña debe tener al menos 8 caracteres');
+            } else if (password && !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+                showError('register-password-error', 'Debe contener mayúscula, minúscula y número');
+            } else {
+                hideError('register-password-error');
+            }
+        });
+
+        document.getElementById('register-confirm-password').addEventListener('blur', function() {
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = this.value;
+            if (confirmPassword && password !== confirmPassword) {
+                showError('register-confirm-password-error', 'Las contraseñas no coinciden');
+            } else {
+                hideError('register-confirm-password-error');
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

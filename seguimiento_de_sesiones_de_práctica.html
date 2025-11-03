@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreakTracker Pro - Registrar Sesión</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fstreaktrac3957back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-gradient-to-br from-primary-50 via-white to-accent-50 min-h-screen">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="flame-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="1" fill="currentColor"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#flame-pattern)"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 px-4 py-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">🔥</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary-800">StreakTracker Pro</h1>
+                        <p class="text-xs text-secondary-500">Tu racha, tu fuerza</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="main_dashboard.html" class="text-secondary-600 hover:text-primary transition-colors">Dashboard</a>
+                    <a href="calendar_view.html" class="text-secondary-600 hover:text-primary transition-colors">Calendario</a>
+                    <a href="progress_analytics.html" class="text-secondary-600 hover:text-primary transition-colors">Progreso</a>
+                    <a href="achievement_center.html" class="text-secondary-600 hover:text-primary transition-colors">Logros</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-secondary-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-border-light relative z-10">
+        <div class="px-4 py-2 space-y-1">
+            <a href="main_dashboard.html" class="block px-3 py-2 text-secondary-600 hover:text-primary hover:bg-surface rounded-md">Dashboard</a>
+            <a href="calendar_view.html" class="block px-3 py-2 text-secondary-600 hover:text-primary hover:bg-surface rounded-md">Calendario</a>
+            <a href="progress_analytics.html" class="block px-3 py-2 text-secondary-600 hover:text-primary hover:bg-surface rounded-md">Progreso</a>
+            <a href="achievement_center.html" class="block px-3 py-2 text-secondary-600 hover:text-primary hover:bg-surface rounded-md">Logros</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="relative z-10 px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 shadow-elevated">
+                    <span class="text-2xl">📝</span>
+                </div>
+                <h2 class="text-3xl font-bold text-secondary-800 mb-2">Registrar Sesión de Práctica</h2>
+                <p class="text-secondary-600 text-lg">Cada sesión cuenta. Mantén tu racha ardiendo.</p>
+            </div>
+
+            <!-- Current Streak Display -->
+            <div class="bg-white rounded-2xl shadow-elevated p-6 mb-8 border border-border-light">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                            <span class="text-xl">🔥</span>
+                        </div>
+                        <div>
+                            <p class="text-sm text-secondary-600">Racha Actual</p>
+                            <p class="streak-counter text-3xl">47 días</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-secondary-600">Última sesión</p>
+                        <p class="font-semibold text-secondary-800">Ayer, 19:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Session Tracker -->
+            <div class="bg-white rounded-2xl shadow-elevated p-8 mb-8 border border-border-light">
+                <h3 class="text-xl font-bold text-secondary-800 mb-6">Registrar Nueva Sesión</h3>
+                
+                <!-- Session Type Selection -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-secondary-700 mb-3">Tipo de Sesión</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <button class="session-type-btn active" data-type="simulacro">
+                            <div class="flex items-center justify-center space-x-3 p-4 border-2 border-primary bg-primary-50 rounded-lg transition-all">
+                                <span class="text-2xl">📋</span>
+                                <div class="text-left">
+                                    <p class="font-semibold text-primary">Simulacro</p>
+                                    <p class="text-xs text-primary-700">Examen completo</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="session-type-btn" data-type="review">
+                            <div class="flex items-center justify-center space-x-3 p-4 border-2 border-border hover:border-accent hover:bg-accent-50 rounded-lg transition-all">
+                                <span class="text-2xl">📚</span>
+                                <div class="text-left">
+                                    <p class="font-semibold text-secondary-700">Repaso</p>
+                                    <p class="text-xs text-secondary-500">Revisión de temas</p>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="session-type-btn" data-type="focused">
+                            <div class="flex items-center justify-center space-x-3 p-4 border-2 border-border hover:border-accent hover:bg-accent-50 rounded-lg transition-all">
+                                <span class="text-2xl">🎯</span>
+                                <div class="text-left">
+                                    <p class="font-semibold text-secondary-700">Enfocado</p>
+                                    <p class="text-xs text-secondary-500">Tema específico</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Time Tracking -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-secondary-700 mb-3">Duración de la Sesión</label>
+                    <div class="flex items-center space-x-4">
+                        <!-- Timer Display -->
+                        <div class="flex-1">
+                            <div class="bg-surface rounded-lg p-4 text-center">
+                                <div id="timer-display" class="text-4xl font-mono font-bold text-primary mb-2">00:00:00</div>
+                                <div class="flex justify-center space-x-2">
+                                    <button id="start-timer" class="px-4 py-2 bg-success-500 text-white rounded-lg hover:bg-success-600 transition-colors">
+                                        <span class="flex items-center">
+                                            <span class="mr-1">▶️</span>
+                                            Iniciar
+                                        </span>
+                                    </button>
+                                    <button id="pause-timer" class="px-4 py-2 bg-warning-500 text-white rounded-lg hover:bg-warning-600 transition-colors hidden">
+                                        <span class="flex items-center">
+                                            <span class="mr-1">⏸️</span>
+                                            Pausar
+                                        </span>
+                                    </button>
+                                    <button id="stop-timer" class="px-4 py-2 bg-error-500 text-white rounded-lg hover:bg-error-600 transition-colors hidden">
+                                        <span class="flex items-center">
+                                            <span class="mr-1">⏹️</span>
+                                            Detener
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manual Time Entry -->
+                        <div class="text-center">
+                            <p class="text-sm text-secondary-600 mb-2">O ingresa manualmente</p>
+                            <div class="flex space-x-2">
+                                <input type="number" id="manual-hours" placeholder="H" min="0" max="23" class="w-12 px-2 py-2 border border-border rounded text-center">
+                                <span class="py-2 text-secondary-600">:</span>
+                                <input type="number" id="manual-minutes" placeholder="M" min="0" max="59" class="w-12 px-2 py-2 border border-border rounded text-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Difficulty Rating -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-secondary-700 mb-3">Dificultad Percibida</label>
+                    <div class="flex justify-center space-x-2">
+                        <button class="difficulty-btn" data-difficulty="1">
+                            <span class="text-3xl hover:scale-110 transition-transform">😊</span>
+                            <p class="text-xs text-secondary-600 mt-1">Muy Fácil</p>
+                        </button>
+                        <button class="difficulty-btn" data-difficulty="2">
+                            <span class="text-3xl hover:scale-110 transition-transform">🙂</span>
+                            <p class="text-xs text-secondary-600 mt-1">Fácil</p>
+                        </button>
+                        <button class="difficulty-btn active" data-difficulty="3">
+                            <span class="text-3xl hover:scale-110 transition-transform">😐</span>
+                            <p class="text-xs text-secondary-600 mt-1">Moderado</p>
+                        </button>
+                        <button class="difficulty-btn" data-difficulty="4">
+                            <span class="text-3xl hover:scale-110 transition-transform">😰</span>
+                            <p class="text-xs text-secondary-600 mt-1">Difícil</p>
+                        </button>
+                        <button class="difficulty-btn" data-difficulty="5">
+                            <span class="text-3xl hover:scale-110 transition-transform">😵</span>
+                            <p class="text-xs text-secondary-600 mt-1">Muy Difícil</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Session Notes -->
+                <div class="mb-6">
+                    <label for="session-notes" class="block text-sm font-medium text-secondary-700 mb-2">Notas de la Sesión (Opcional)</label>
+                    <textarea 
+                        id="session-notes" 
+                        rows="3" 
+                        placeholder="¿Cómo te fue? ¿Qué aprendiste? ¿En qué necesitas mejorar?"
+                        class="input-field resize-none"
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex space-x-4">
+                    <button id="save-session" class="flex-1 btn-primary text-lg py-4">
+                        <span class="flex items-center justify-center">
+                            <span class="mr-2">🔥</span>
+                            Registrar Sesión
+                        </span>
+                    </button>
+                    <button id="save-draft" class="px-6 py-4 border border-border rounded-lg text-secondary-600 hover:bg-surface transition-colors">
+                        Guardar Borrador
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Sessions -->
+            <div class="bg-white rounded-2xl shadow-elevated p-8 border border-border-light">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-secondary-800">Sesiones Recientes</h3>
+                    <a href="calendar_view.html" class="text-primary hover:text-primary-700 font-medium text-sm">Ver todas</a>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Session Item -->
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                <span class="text-lg">📋</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-secondary-800">Simulacro Completo</p>
+                                <p class="text-sm text-secondary-600">Ayer • 2h 15min • Moderado 😐</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg">🔥</span>
+                            <p class="text-xs text-secondary-600">+1 día</p>
+                        </div>
+                    </div>
+
+                    <!-- Session Item -->
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                <span class="text-lg">📚</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-secondary-800">Repaso de Matemáticas</p>
+                                <p class="text-sm text-secondary-600">2 nov • 1h 30min • Fácil 🙂</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg">🔥</span>
+                            <p class="text-xs text-secondary-600">+1 día</p>
+                        </div>
+                    </div>
+
+                    <!-- Session Item -->
+                    <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-success-100 rounded-full flex items-center justify-center">
+                                <span class="text-lg">🎯</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-secondary-800">Práctica Enfocada - Física</p>
+                                <p class="text-sm text-secondary-600">1 nov • 45min • Difícil 😰</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg">🔥</span>
+                            <p class="text-xs text-secondary-600">+1 día</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motivational Footer -->
+            <div class="text-center mt-8">
+                <p class="text-secondary-600 text-sm mb-2">
+                    "La práctica no hace la perfección. La práctica perfecta hace la perfección."
+                </p>
+                <div class="flex items-center justify-center space-x-2 text-xs text-secondary-500">
+                    <span>🔥</span>
+                    <span>Cada sesión es progreso</span>
+                    <span>•</span>
+                    <span>Mantén el momentum</span>
+                    <span>🔥</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-2xl p-8 w-full max-w-md text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-success-500 to-success-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span class="text-3xl">🔥</span>
+            </div>
+            <h3 class="text-2xl font-bold text-secondary-800 mb-2">¡Sesión Registrada!</h3>
+            <p class="text-secondary-600 mb-2">Tu racha continúa ardiendo</p>
+            <div class="bg-surface rounded-lg p-4 mb-6">
+                <p class="streak-counter text-4xl mb-2">48 días</p>
+                <p class="text-sm text-secondary-600">Nueva racha personal</p>
+            </div>
+            <div class="flex space-x-3">
+                <button id="view-calendar" class="flex-1 px-4 py-3 border border-border rounded-lg text-secondary-600 hover:bg-surface transition-colors">
+                    Ver Calendario
+                </button>
+                <button id="continue-practicing" class="flex-1 btn-primary">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="fixed bottom-4 left-4 bg-warning-500 text-white px-4 py-2 rounded-lg shadow-elevated hidden">
+        <div class="flex items-center">
+            <span class="mr-2">📱</span>
+            <span class="text-sm">Modo sin conexión - Los datos se sincronizarán automáticamente</span>
+        </div>
+    </div>
+
+    <script>
+        // Timer functionality
+        let timerInterval;
+        let seconds = 0;
+        let isRunning = false;
+
+        const timerDisplay = document.getElementById('timer-display');
+        const startBtn = document.getElementById('start-timer');
+        const pauseBtn = document.getElementById('pause-timer');
+        const stopBtn = document.getElementById('stop-timer');
+
+        function updateTimerDisplay() {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        startBtn.addEventListener('click', () => {
+            if (!isRunning) {
+                isRunning = true;
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    updateTimerDisplay();
+                }, 1000);
+                startBtn.classList.add('hidden');
+                pauseBtn.classList.remove('hidden');
+                stopBtn.classList.remove('hidden');
+            }
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(timerInterval);
+                startBtn.classList.remove('hidden');
+                pauseBtn.classList.add('hidden');
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            isRunning = false;
+            clearInterval(timerInterval);
+            startBtn.classList.remove('hidden');
+            pauseBtn.classList.add('hidden');
+            stopBtn.classList.add('hidden');
+        });
+
+        // Session type selection
+        const sessionTypeBtns = document.querySelectorAll('.session-type-btn');
+        let selectedSessionType = 'simulacro';
+
+        sessionTypeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sessionTypeBtns.forEach(b => {
+                    b.classList.remove('active');
+                    const div = b.querySelector('div');
+                    div.classList.remove('border-primary', 'bg-primary-50');
+                    div.classList.add('border-border', 'hover:border-accent', 'hover:bg-accent-50');
+                    const p = b.querySelector('p');
+                    p.classList.remove('text-primary');
+                    p.classList.add('text-secondary-700');
+                    const small = b.querySelector('.text-xs');
+                    small.classList.remove('text-primary-700');
+                    small.classList.add('text-secondary-500');
+                });
+                
+                btn.classList.add('active');
+                const div = btn.querySelector('div');
+                div.classList.add('border-primary', 'bg-primary-50');
+                div.classList.remove('border-border', 'hover:border-accent', 'hover:bg-accent-50');
+                const p = btn.querySelector('p');
+                p.classList.add('text-primary');
+                p.classList.remove('text-secondary-700');
+                const small = btn.querySelector('.text-xs');
+                small.classList.add('text-primary-700');
+                small.classList.remove('text-secondary-500');
+                
+                selectedSessionType = btn.dataset.type;
+            });
+        });
+
+        // Difficulty rating selection
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+        let selectedDifficulty = 3;
+
+        difficultyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                difficultyBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedDifficulty = parseInt(btn.dataset.difficulty);
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Save session functionality
+        const saveSessionBtn = document.getElementById('save-session');
+        const successModal = document.getElementById('success-modal');
+        const continueBtn = document.getElementById('continue-practicing');
+        const viewCalendarBtn = document.getElementById('view-calendar');
+
+        saveSessionBtn.addEventListener('click', () => {
+            // Get session data
+            const sessionData = {
+                type: selectedSessionType,
+                duration: seconds > 0 ? seconds : getManualTime(),
+                difficulty: selectedDifficulty,
+                notes: document.getElementById('session-notes').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Validate session
+            if (sessionData.duration === 0) {
+                alert('Por favor, registra la duración de tu sesión');
+                return;
+            }
+
+            // Save session (mock implementation)
+            console.log('Saving session:', sessionData);
+            
+            // Show success modal
+            successModal.classList.remove('hidden');
+            
+            // Reset form
+            resetForm();
+        });
+
+        function getManualTime() {
+            const hours = parseInt(document.getElementById('manual-hours').value) || 0;
+            const minutes = parseInt(document.getElementById('manual-minutes').value) || 0;
+            return (hours * 3600) + (minutes * 60);
+        }
+
+        function resetForm() {
+            seconds = 0;
+            updateTimerDisplay();
+            document.getElementById('manual-hours').value = '';
+            document.getElementById('manual-minutes').value = '';
+            document.getElementById('session-notes').value = '';
+            
+            // Reset timer buttons
+            startBtn.classList.remove('hidden');
+            pauseBtn.classList.add('hidden');
+            stopBtn.classList.add('hidden');
+            
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                isRunning = false;
+            }
+        }
+
+        // Modal actions
+        continueBtn.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+
+        viewCalendarBtn.addEventListener('click', () => {
+            window.location.href = 'calendar_view.html';
+        });
+
+        // Save draft functionality
+        document.getElementById('save-draft').addEventListener('click', () => {
+            const draftData = {
+                type: selectedSessionType,
+                duration: seconds > 0 ? seconds : getManualTime(),
+                difficulty: selectedDifficulty,
+                notes: document.getElementById('session-notes').value,
+                isDraft: true
+            };
+            
+            localStorage.setItem('sessionDraft', JSON.stringify(draftData));
+            
+            // Show feedback
+            const btn = document.getElementById('save-draft');
+            const originalText = btn.textContent;
+            btn.textContent = 'Borrador Guardado ✓';
+            btn.classList.add('bg-success-100', 'text-success-700');
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.classList.remove('bg-success-100', 'text-success-700');
+            }, 2000);
+        });
+
+        // Load draft on page load
+        window.addEventListener('load', () => {
+            const draft = localStorage.getItem('sessionDraft');
+            if (draft) {
+                const draftData = JSON.parse(draft);
+                
+                // Restore form data
+                if (draftData.duration > 0) {
+                    seconds = draftData.duration;
+                    updateTimerDisplay();
+                }
+                
+                // Restore session type
+                const typeBtn = document.querySelector(`[data-type="${draftData.type}"]`);
+                if (typeBtn) typeBtn.click();
+                
+                // Restore difficulty
+                const diffBtn = document.querySelector(`[data-difficulty="${draftData.difficulty}"]`);
+                if (diffBtn) diffBtn.click();
+                
+                // Restore notes
+                document.getElementById('session-notes').value = draftData.notes || '';
+            }
+        });
+
+        // Offline detection
+        function updateOnlineStatus() {
+            const offlineIndicator = document.getElementById('offline-indicator');
+            if (navigator.onLine) {
+                offlineIndicator.classList.add('hidden');
+            } else {
+                offlineIndicator.classList.remove('hidden');
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+
+        // Auto-save functionality
+        let autoSaveTimeout;
+        const formInputs = document.querySelectorAll('input, textarea');
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                clearTimeout(autoSaveTimeout);
+                autoSaveTimeout = setTimeout(() => {
+                    // Auto-save draft
+                    const draftData = {
+                        type: selectedSessionType,
+                        duration: seconds > 0 ? seconds : getManualTime(),
+                        difficulty: selectedDifficulty,
+                        notes: document.getElementById('session-notes').value,
+                        isDraft: true,
+                        autoSaved: true
+                    };
+                    localStorage.setItem('sessionDraft', JSON.stringify(draftData));
+                }, 2000);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreakTracker Pro - Centro de Logros</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fstreaktrac3957back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-gradient-to-br from-primary-50 via-white to-accent-50 min-h-screen">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="achievement-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="1" fill="currentColor"/>
+                </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#achievement-pattern)"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 px-4 py-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white text-xl font-bold">🔥</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary-800">StreakTracker Pro</h1>
+                        <p class="text-xs text-secondary-500">Tu racha, tu fuerza</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="main_dashboard.html" class="text-secondary-600 hover:text-primary transition-colors">Dashboard</a>
+                    <a href="calendar_view.html" class="text-secondary-600 hover:text-primary transition-colors">Calendario</a>
+                    <a href="practice_session_tracker.html" class="text-secondary-600 hover:text-primary transition-colors">Práctica</a>
+                    <a href="progress_analytics.html" class="text-secondary-600 hover:text-primary transition-colors">Progreso</a>
+                    <a href="achievement_center.html" class="text-primary font-semibold">Logros</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-secondary-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="bg-white rounded-lg shadow-elevated p-4 space-y-2">
+                    <a href="main_dashboard.html" class="block py-2 text-secondary-600 hover:text-primary transition-colors">Dashboard</a>
+                    <a href="calendar_view.html" class="block py-2 text-secondary-600 hover:text-primary transition-colors">Calendario</a>
+                    <a href="practice_session_tracker.html" class="block py-2 text-secondary-600 hover:text-primary transition-colors">Práctica</a>
+                    <a href="progress_analytics.html" class="block py-2 text-secondary-600 hover:text-primary transition-colors">Progreso</a>
+                    <a href="achievement_center.html" class="block py-2 text-primary font-semibold">Logros</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <div class="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-elevated">
+                    <span class="text-3xl">🏆</span>
+                </div>
+                <h2 class="text-4xl font-bold text-secondary-800 mb-4">Centro de Logros</h2>
+                <p class="text-xl text-secondary-600 max-w-2xl mx-auto">
+                    Celebra cada victoria. Cada logro es un paso más hacia la maestría.
+                </p>
+            </div>
+
+            <!-- Achievement Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-2xl p-6 shadow-elevated border border-border-light text-center">
+                    <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🏅</span>
+                    </div>
+                    <div class="text-3xl font-bold text-primary mb-2">12</div>
+                    <div class="text-sm text-secondary-600">Logros Desbloqueados</div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-elevated border border-border-light text-center">
+                    <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⭐</span>
+                    </div>
+                    <div class="text-3xl font-bold text-accent mb-2">2,450</div>
+                    <div class="text-sm text-secondary-600">Puntos Totales</div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-elevated border border-border-light text-center">
+                    <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🔥</span>
+                    </div>
+                    <div class="text-3xl font-bold text-success-600 mb-2">45</div>
+                    <div class="text-sm text-secondary-600">Racha Máxima</div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-elevated border border-border-light text-center">
+                    <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📈</span>
+                    </div>
+                    <div class="text-3xl font-bold text-secondary-600 mb-2">85%</div>
+                    <div class="text-sm text-secondary-600">Nivel de Progreso</div>
+                </div>
+            </div>
+
+            <!-- Recent Achievement Celebration -->
+            <div class="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 mb-12 text-white text-center shadow-elevated">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-3xl">🎉</span>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-1">¡Nuevo Logro Desbloqueado!</h3>
+                        <p class="text-lg opacity-90">Maestro de la Consistencia - 30 días consecutivos</p>
+                    </div>
+                </div>
+                <p class="text-lg opacity-90 mb-6">
+                    Has demostrado una dedicación excepcional. ¡Tu constancia es inspiradora!
+                </p>
+                <button class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                    Compartir Logro
+                </button>
+            </div>
+
+            <!-- Achievement Categories -->
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="achievement-filter-btn active" data-category="all">
+                        <span class="mr-2">🏆</span>
+                        Todos
+                    </button>
+                    <button class="achievement-filter-btn" data-category="consistency">
+                        <span class="mr-2">🔥</span>
+                        Consistencia
+                    </button>
+                    <button class="achievement-filter-btn" data-category="progress">
+                        <span class="mr-2">📈</span>
+                        Progreso
+                    </button>
+                    <button class="achievement-filter-btn" data-category="milestones">
+                        <span class="mr-2">🎯</span>
+                        Hitos
+                    </button>
+                    <button class="achievement-filter-btn" data-category="special">
+                        <span class="mr-2">⭐</span>
+                        Especiales
+                    </button>
+                </div>
+            </div>
+
+            <!-- Achievements Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Earned Achievement -->
+                <div class="achievement-card earned bg-white rounded-2xl p-6 shadow-elevated border border-border-light" data-category="consistency">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🔥</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="milestone-badge">Desbloqueado</span>
+                            <button class="text-secondary-400 hover:text-secondary-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-800 mb-2">Maestro de la Consistencia</h3>
+                    <p class="text-secondary-600 mb-4">Completa 30 días consecutivos de práctica</p>
+                    <div class="flex items-center justify-between text-sm text-secondary-500">
+                        <span>Desbloqueado: 15 Oct 2024</span>
+                        <span class="text-accent font-semibold">+500 puntos</span>
+                    </div>
+                </div>
+
+                <!-- Earned Achievement -->
+                <div class="achievement-card earned bg-white rounded-2xl p-6 shadow-elevated border border-border-light" data-category="milestones">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-success-500 to-success-600 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="milestone-badge">Desbloqueado</span>
+                            <button class="text-secondary-400 hover:text-secondary-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-800 mb-2">Centurión</h3>
+                    <p class="text-secondary-600 mb-4">Completa 100 sesiones de práctica</p>
+                    <div class="flex items-center justify-between text-sm text-secondary-500">
+                        <span>Desbloqueado: 8 Oct 2024</span>
+                        <span class="text-accent font-semibold">+750 puntos</span>
+                    </div>
+                </div>
+
+                <!-- Earned Achievement -->
+                <div class="achievement-card earned bg-white rounded-2xl p-6 shadow-elevated border border-border-light" data-category="progress">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">📈</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="milestone-badge">Desbloqueado</span>
+                            <button class="text-secondary-400 hover:text-secondary-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-800 mb-2">Escalador Imparable</h3>
+                    <p class="text-secondary-600 mb-4">Mejora tu puntuación 5 veces consecutivas</p>
+                    <div class="flex items-center justify-between text-sm text-secondary-500">
+                        <span>Desbloqueado: 2 Oct 2024</span>
+                        <span class="text-accent font-semibold">+300 puntos</span>
+                    </div>
+                </div>
+
+                <!-- In Progress Achievement -->
+                <div class="achievement-card in-progress bg-white rounded-2xl p-6 shadow-elevated border border-border-light" data-category="consistency">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-secondary-200 rounded-full flex items-center justify-center">
+                            <span class="text-2xl opacity-50">🏆</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-600">En Progreso</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-800 mb-2">Leyenda Viviente</h3>
+                    <p class="text-secondary-600 mb-4">Mantén una racha de 100 días consecutivos</p>
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between text-sm text-secondary-600 mb-2">
+                            <span>Progreso: 45/100 días</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-secondary-500">
+                        <span class="text-accent font-semibold">+1,000 puntos</span> al completar
+                    </div>
+                </div>
+
+                <!-- Locked Achievement -->
+                <div class="achievement-card locked bg-white rounded-2xl p-6 shadow-elevated border border-border-light opacity-60" data-category="special">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🔒</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-500">Bloqueado</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-600 mb-2">Perfeccionista</h3>
+                    <p class="text-secondary-500 mb-4">Obtén puntuación perfecta en 10 sesiones</p>
+                    <div class="text-sm text-secondary-400">
+                        <span>Requisito: Desbloquear "Escalador Imparable"</span>
+                    </div>
+                </div>
+
+                <!-- Locked Achievement -->
+                <div class="achievement-card locked bg-white rounded-2xl p-6 shadow-elevated border border-border-light opacity-60" data-category="milestones">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center">
+                            <span class="text-2xl">🔒</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-500">Bloqueado</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-600 mb-2">Maratonista</h3>
+                    <p class="text-secondary-500 mb-4">Completa 500 sesiones de práctica</p>
+                    <div class="text-sm text-secondary-400">
+                        <span>Progreso: 125/500 sesiones</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Milestones -->
+            <div class="bg-white rounded-2xl p-8 shadow-elevated border border-border-light mb-12">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-secondary-800">Próximos Hitos</h3>
+                    <span class="text-sm text-secondary-500">Mantén el impulso</span>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Next Milestone -->
+                    <div class="flex items-center space-x-4 p-4 bg-primary-50 rounded-xl border border-primary-200">
+                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                            <span class="text-xl">🎯</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-secondary-800 mb-1">Racha de 50 días</h4>
+                            <p class="text-sm text-secondary-600 mb-2">Solo 5 días más para desbloquear este logro</p>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-secondary-600">45/50 días</span>
+                                <span class="text-primary font-semibold">+600 puntos</span>
+                            </div>
+                            <div class="progress-bar mt-2">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Milestone -->
+                    <div class="flex items-center space-x-4 p-4 bg-accent-50 rounded-xl border border-accent-200">
+                        <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                            <span class="text-xl">⭐</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-secondary-800 mb-1">Estudiante Dedicado</h4>
+                            <p class="text-sm text-secondary-600 mb-2">Estudia durante 50 horas en total</p>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-secondary-600">38/50 horas</span>
+                                <span class="text-accent font-semibold">+400 puntos</span>
+                            </div>
+                            <div class="progress-bar mt-2">
+                                <div class="progress-fill bg-gradient-to-r from-accent to-accent-600" style="width: 76%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Sharing -->
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-secondary-800 mb-4">Comparte tus Logros</h3>
+                <p class="text-secondary-600 mb-6">
+                    Inspira a otros compartiendo tu progreso y celebra tus victorias
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_149c995c1-1762205611975.png" 
+                             alt="Facebook icon" 
+                             class="w-5 h-5 mr-2 rounded"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        Facebook
+                    </button>
+                    <button class="flex items-center px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_12987ccdb-1762205613596.png" 
+                             alt="Twitter icon" 
+                             class="w-5 h-5 mr-2 rounded"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        Twitter
+                    </button>
+                    <button class="flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1046c0d85-1762205612677.png" 
+                             alt="WhatsApp icon" 
+                             class="w-5 h-5 mr-2 rounded"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Achievement Unlock Modal -->
+    <div id="achievement-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-2xl p-8 w-full max-w-md text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-slow">
+                <span class="text-3xl">🎉</span>
+            </div>
+            <h3 class="text-2xl font-bold text-secondary-800 mb-4">¡Logro Desbloqueado!</h3>
+            <h4 class="text-xl font-semibold text-primary mb-2" id="modal-achievement-title">Maestro de la Consistencia</h4>
+            <p class="text-secondary-600 mb-6" id="modal-achievement-description">Has completado 30 días consecutivos de práctica</p>
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-accent" id="modal-points">+500</div>
+                    <div class="text-sm text-secondary-500">Puntos</div>
+                </div>
+            </div>
+            <div class="flex space-x-3">
+                <button id="close-modal" class="flex-1 px-4 py-3 border border-border rounded-lg text-secondary-600 hover:bg-surface transition-colors">
+                    Cerrar
+                </button>
+                <button id="share-achievement" class="flex-1 btn-primary">
+                    Compartir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-secondary-800 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white text-lg font-bold">🔥</span>
+                    </div>
+                    <span class="text-xl font-bold">StreakTracker Pro</span>
+                </div>
+                <p class="text-secondary-300 mb-4">
+                    "La consistencia es la madre de la maestría"
+                </p>
+                <div class="flex items-center justify-center space-x-2 text-sm text-secondary-400">
+                    <span>🔥</span>
+                    <span>Cada día cuenta</span>
+                    <span>•</span>
+                    <span>Cada práctica importa</span>
+                    <span>🔥</span>
+                </div>
+                <div class="mt-6 text-sm text-secondary-400">
+                    © 2025 StreakTracker Pro. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .achievement-filter-btn {
+            @apply px-4 py-2 rounded-lg border border-border text-secondary-600 hover:bg-surface transition-colors;
+        }
+        
+        .achievement-filter-btn.active {
+            @apply bg-primary text-white border-primary;
+        }
+        
+        .achievement-card.earned {
+            @apply transform hover:scale-105 transition-transform cursor-pointer;
+        }
+        
+        .achievement-card.in-progress {
+            @apply border-accent-200 bg-gradient-to-br from-white to-accent-50;
+        }
+        
+        .achievement-card.locked {
+            @apply cursor-not-allowed;
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Achievement filter functionality
+        const filterBtns = document.querySelectorAll('.achievement-filter-btn');
+        const achievementCards = document.querySelectorAll('.achievement-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter achievements
+                const category = btn.dataset.category;
+                achievementCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Achievement modal functionality
+        const achievementModal = document.getElementById('achievement-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const shareAchievementBtn = document.getElementById('share-achievement');
+
+        // Simulate achievement unlock (for demo purposes)
+        function showAchievementModal(title, description, points) {
+            document.getElementById('modal-achievement-title').textContent = title;
+            document.getElementById('modal-achievement-description').textContent = description;
+            document.getElementById('modal-points').textContent = `+${points}`;
+            achievementModal.classList.remove('hidden');
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            achievementModal.classList.add('hidden');
+        });
+
+        shareAchievementBtn.addEventListener('click', () => {
+            // Simulate sharing functionality
+            alert('¡Logro compartido exitosamente!');
+            achievementModal.classList.add('hidden');
+        });
+
+        // Click on earned achievements to show details
+        document.querySelectorAll('.achievement-card.earned').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h3').textContent;
+                const description = card.querySelector('p').textContent;
+                const points = card.querySelector('.text-accent').textContent.replace('+', '').replace(' puntos', '');
+                showAchievementModal(title, description, points);
+            });
+        });
+
+        // Social sharing functionality
+        document.querySelectorAll('button[class*="bg-blue"], button[class*="bg-green"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const platform = btn.textContent.trim();
+                alert(`Compartiendo en ${platform}...`);
+            });
+        });
+
+        // Simulate achievement unlock after page load (demo)
+        setTimeout(() => {
+            // Uncomment to show demo achievement unlock
+            // showAchievementModal('Visitante Dedicado', 'Has visitado el centro de logros', '50');
+        }, 2000);
+
+        // Progress bar animations
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Animate progress bars on page load
+        window.addEventListener('load', () => {
+            setTimeout(animateProgressBars, 500);
+        });
+
+        // Tooltip functionality for locked achievements
+        document.querySelectorAll('.achievement-card.locked').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.title = 'Este logro está bloqueado. Completa los requisitos para desbloquearlo.';
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
